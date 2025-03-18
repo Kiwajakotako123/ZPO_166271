@@ -201,8 +201,6 @@ try:
 except ValueError as e:
     print(e)
 
-#zad3
-
 #Zad3
 
 class Car(ABC):
@@ -446,13 +444,11 @@ class Smartphone:
     def __str__(self):
         return f"{self.brand} {self.model} ({self.year}) - Specs: {', '.join(self.specs)}"
 
-# 📌 Interfejs fabryki smartfonów
 class SmartphoneFactory(ABC):
     @abstractmethod
     def create_smartphone(self, year: int) -> Smartphone:
         pass
 
-# 📌 Fabryka Apfel (Apple)
 class ApfelFactory(SmartphoneFactory):
     def create_smartphone(self, year: int) -> Smartphone:
         models = {
@@ -463,7 +459,6 @@ class ApfelFactory(SmartphoneFactory):
         specs = ["OLED Display", "Face ID", "iOS"]
         return Smartphone(brand="Apfel", model=models.get(year, "Unknown"), year=year, specs=specs)
 
-# 📌 Fabryka Szajsung (Samsung)
 class SzajsungFactory(SmartphoneFactory):
     def create_smartphone(self, year: int) -> Smartphone:
         models = {
@@ -474,7 +469,6 @@ class SzajsungFactory(SmartphoneFactory):
         specs = ["AMOLED Display", "Fingerprint Sensor", "Android"]
         return Smartphone(brand="Szajsung", model=models.get(year, "Unknown"), year=year, specs=specs)
 
-# 📌 Fabryka MajFon (Nowa Marka)
 class MajFonFactory(SmartphoneFactory):
     def create_smartphone(self, year: int) -> Smartphone:
         models = {
